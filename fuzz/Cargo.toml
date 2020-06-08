@@ -1,0 +1,47 @@
+[package]
+name = "minira-util-fuzz"
+version = "0.0.0"
+authors = ["Automatically generated"]
+publish = false
+edition = "2018"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.3"
+minira-util = { path = ".." }
+regalloc = { path = "../lib", features = ["fuzzing"] }
+
+# Prevent this from interfering with workspaces
+[workspace]
+members = ["."]
+
+[[bin]]
+name = "bt"
+path = "fuzz_bt.rs"
+
+[[bin]]
+name = "bt_differential"
+path = "fuzz_bt_differential.rs"
+
+[[bin]]
+name = "lsra"
+path = "fuzz_lsra.rs"
+
+[[bin]]
+name = "lsra_differential"
+path = "fuzz_lsra_differential.rs"
+
+[[bin]]
+name = "validator"
+path = "fuzz_validator.rs"
+
+[[bin]]
+name = "parser"
+path = "fuzz_parser.rs"
+
+[profile.release]
+debug = true
+debug-assertions = true
+overflow-checks = true

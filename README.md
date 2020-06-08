@@ -1,3 +1,8 @@
-# veracruz-regalloc
+regalloc.rs
+===
 
-Tracking repository for the Veracruz fork of the regalloc library.
+A work-in-progress modular register allocation algorithm, implemented so as to
+be used in [Cranelift](https://github.com/bytecodealliance/cranelift).
+
+WARNING: This is not production ready, you should expect API changes, failures,
+etc.
